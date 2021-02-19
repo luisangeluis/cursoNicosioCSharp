@@ -5,15 +5,15 @@ class Program
     static void Main() {
         CRefri miRefri = new CRefri(50,-20);
         
-        IEventosRefri sink = new CRefriSink();
-        IEventosRefri sinkTienda = new CTiendaSink();
+        CRefriSink sink = new CRefriSink();
+        CTiendaSink sinkTienda = new CTiendaSink();
         
         Random rnd = new Random();
         
         miRefri.AgregarSink(sink);
         miRefri.AgregarSink(sinkTienda);
         
-        while(miRefri.Kilos>0 && sinkTienda.Paro==false){
+        while(miRefri.Kilos>0 && sink.Paro==false){
             miRefri.Trabajar(rnd.Next(1,5));
 
         }
@@ -33,7 +33,7 @@ class CRefriSink: IEventosRefri{
     
     
     private bool paro=false;
-    public bool Paro{get{return Paro;}}
+    public bool Paro{get{return paro;}}
     
     public void EReservasBajas(int pKilos){
         
