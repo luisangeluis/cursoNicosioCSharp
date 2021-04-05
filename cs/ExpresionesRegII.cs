@@ -79,7 +79,57 @@ class Program
         Console.WriteLine("$ el signo indica si al final tiene determinada expresion");
         MatchesExpress(texto,exp);
         
+        //? Cumple la condicion si el elemento despues de ? existe o no
+        //Elementos opcionales
+        texto = "Hola Nio";
+        exp="N[ie]c?o";
         
+        Console.WriteLine("Elementos opcionales");
+        MatchesExpress(texto,exp);
+        
+        //Cuantificador
+        //Revisa si la expresion se repite n numero de veces
+        
+        texto="Hola 21 Nico";
+        exp = "[0-9]{2}";
+        Console.WriteLine("Cuantificador");
+        MatchesExpress(texto,exp);
+        
+        //Alternaciones
+        //Busca si hay  alguna de las expresiones entre los parentesis
+        texto="Yo se programar en java y c";
+        exp="(java|c|python)";
+        Console.WriteLine("Alternaciones");
+        MatchesExpress(texto,exp);
+        
+        //Split
+        //Hace una subcadena cada vez que la expresion coincide
+        
+        texto="Este es un test de separacion, division";
+        exp ="e";
+                Console.WriteLine("Uso de explit");
+
+        string[] cadena = Regex.Split(texto,exp);
+        
+        foreach(string c in cadena){
+            Console.WriteLine(c);
+        }
+        
+        //Para reemplazar
+        
+        texto = "Yo hablo ingles y no soy ingles";
+        expReg = new Regex("ingles");
+        
+        string reemplazo = "español";
+        string resultado = expReg.Replace(texto,reemplazo);
+        
+        Console.WriteLine("Para reemplazar expresiones en la cadena, no afecta a la cadena original");
+
+        Console.WriteLine(texto);
+        Console.WriteLine(resultado);
+        
+
+
     }
     
     
