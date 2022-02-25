@@ -4,7 +4,7 @@ class Program
 {
     static void Main() {
         
-        CEmpleado persona = new CEmpleado("luis",30,"operador",1000);    
+        CEmpleado persona = new CEmpleado("luis",30,"operador",1000) ;    
         
         persona.MostrarEmpleado();
         
